@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:helloflutter/pages.dart';
-
-
-final barColor = const Color(0xFF002451);
-final bgColor = const Color(0xFF001C40);
-final textColor = const Color(0xFFF4C724);
+import 'package:helloflutter/src/pages.dart';
+import 'colors.dart';
 
 class App extends StatelessWidget{
 
@@ -25,6 +21,7 @@ Widget build(context){
 
     backgroundColor: bgColor,
     appBar: AppBar(
+      //elevation: 0.0,
       titleSpacing: 5.0,
       title: Text(
         'MUN Helper',
@@ -56,8 +53,11 @@ class MenuButton extends StatelessWidget{
         padding: const EdgeInsets.all(15.0),
         child: RawMaterialButton(
         constraints: BoxConstraints(minWidth: width, minHeight: height),
-        fillColor: barColor,
-        shape: const RoundedRectangleBorder(),
+        fillColor: buttonColor,
+        //elevation: 0.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20)
+        ),
         child: Text(name,
         style: TextStyle(
           color: textColor,
@@ -65,7 +65,13 @@ class MenuButton extends StatelessWidget{
         )
         ),
         onPressed: (){
+          if (name == 'MUN Resolution Help') 
           Navigator.push(context, MaterialPageRoute(builder: (context) => ResoHelpPage()));
+
+          else if (name == 'In-Conference Help')
+          Navigator.push(context, MaterialPageRoute(builder: (context) => InConferenceHelpPage()));
+
+
           }, 
         )
       );
