@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'colors.dart';
+import 'package:helloflutter/src/colors.dart';
+import 'package:helloflutter/pages/branch1/ResoHelpBranch2/DisarmamentCommittees.dart';
+import 'package:helloflutter/pages/branch1/ResoHelpBranch2/EnvironmentalCommittees.dart';
+import 'package:helloflutter/pages/branch1/ResoHelpBranch2/GeneralAssembly.dart';
+import 'package:helloflutter/pages/branch1/ResoHelpBranch2/SecurityCouncil.dart';
+import 'package:helloflutter/pages/branch1/ResoHelpBranch2/HumanRightsCouncil.dart';
 
 
 class ResoHelpPage extends StatefulWidget{
@@ -41,44 +46,11 @@ class ResoHelpPageState extends State<ResoHelpPage>{
             SelectCommitteeButton(500.0, 100.0, 'Security Council'),
             SelectCommitteeButton(500.0, 100.0, 'Human Rights Council'),
             SelectCommitteeButton(500.0, 100.0, 'General Assembly'),
-            SelectCommitteeButton(500.0, 100.0, 'ECOSOC'),
-            SelectCommitteeButton(500.0, 100.0, 'Disarmament')
+            SelectCommitteeButton(500.0, 100.0, 'Environmental Committees'),
+            SelectCommitteeButton(500.0, 100.0, 'Disarmament Committees')
           ]
         ),
     );
-  }
-}
-
-
-
-class InConferenceHelpPage extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState(){
-  return InConferenceHelpPageState();
-
-  }
-}
-
-class InConferenceHelpPageState extends State<InConferenceHelpPage>{
-  @override
-  Widget build (BuildContext context){
-    return Scaffold(
-    backgroundColor: bgColor,
-    appBar: AppBar(
-      titleSpacing: 5.0,
-      title: 
-      Center(
-              child: Text(
-          'In-Conference Help',
-          style: TextStyle(
-            color: textColor,
-            fontSize: 27.0
-          ), 
-        ),
-      ),
-      backgroundColor: barColor
-    ),
-  );
   }
 }
 
@@ -105,15 +77,22 @@ class SelectCommitteeButton extends StatelessWidget{
           borderRadius: BorderRadius.circular(20)
         ),
         child: 
-        Center(
-            child: Text(name,
+        Wrap(
+          direction: Axis.horizontal,
+          children: <Widget>[
+            Text(name,
               style: TextStyle(
               color: textColor,
-              fontSize: 25.0
-            )
-          ),
+              fontSize: 25.0),
+              textAlign: TextAlign.center,
+          ),]
         ),
         onPressed: (){
+          
+          if (name == 'Security Council') 
+          Navigator.push(context, MaterialPageRoute(builder: (context) => SecurityCouncilPage()));
+
+
           }, 
         )
       );

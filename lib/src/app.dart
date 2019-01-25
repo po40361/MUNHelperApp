@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:helloflutter/src/pages.dart';
+import 'package:helloflutter/pages/branch1/ResoHelp.dart';
+import 'package:helloflutter/pages/branch1/InConferenceHelp.dart';
+
 import 'colors.dart';
 
 class App extends StatelessWidget{
@@ -83,6 +85,7 @@ class MenuButton extends StatelessWidget{
         onPressed: (){
           if (name == 'MUN Resolution Help') 
           Navigator.push(context, MaterialPageRoute(builder: (context) => ResoHelpPage()));
+          //Navigator.pop(context, MaterialPageRoute(builder: (context) => ResoHelpPage()));
 
           else if (name == 'In-Conference Help')
           Navigator.push(context, MaterialPageRoute(builder: (context) => InConferenceHelpPage()));
@@ -93,12 +96,3 @@ class MenuButton extends StatelessWidget{
       );
     }
 }
-
-
-/*class ResoHelpPage extends MaterialPageRoute<void>(
-  
-  builder: (BuildContext context){
-
-  }
-  
-) */
